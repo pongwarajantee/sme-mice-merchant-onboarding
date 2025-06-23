@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ฟอร์มสมัครเข้าร่วมเป็นร้านค้าเครือข่าย - โครงการบัตร SME Thailand MICE Visa Prepaid Card</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Sarabun -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles & Animations -->
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: #f7fafc;
+        }
+        
+        .form-section {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            margin-bottom: 2rem;
+            padding: 2rem;
+            transition: all 0.3s ease-in-out;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .form-input, .form-textarea, .form-select, .form-file {
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+            outline: none;
+        }
+
+        .submit-button {
+            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+        }
+        
+        .submit-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Animation for sections appearing */
+        .fade-in-up {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-4xl">
+
+        <!-- Header -->
+        <header class="text-center mb-10">
+            <div class="flex justify-center items-center space-x-4 md:space-x-8 mb-6">
+                <!-- Placeholder for Logos -->
+                <img src="https://placehold.co/150x60/CBD5E0/334155?text=SME+Thailand" alt="โลโก้ สมาพันธ์เอสเอ็มอีไทย" class="h-10 md:h-12 object-contain">
+                <img src="https://placehold.co/150x60/CBD5E0/334155?text=TCEB" alt="โลโก้ TCEB" class="h-10 md:h-12 object-contain">
+                <img src="https://placehold.co/150x60/CBD5E0/334155?text=VISA" alt="โลโก้ VISA" class="h-10 md:h-12 object-contain">
+            </div>
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-800">ฟอร์มสมัครเข้าร่วมเป็นร้านค้าเครือข่าย</h1>
+            <h2 class="text-xl md:text-2xl font-semibold text-indigo-600">โครงการบัตร SME Thailand MICE Visa Prepaid Card</h2>
+            <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+                เข้าร่วมเป็นพันธมิตรกับเราเพื่อเข้าถึงกลุ่มลูกค้าองค์กรและนักเดินทางธุรกิจ พร้อมรับสิทธิประโยชน์มากมายจากโครงการ
+            </p>
+        </header>
+
+        <!-- Onboarding Form -->
+        <form id="merchantForm" novalidate>
+            <!-- Section 1: Business Information -->
+            <div class="form-section">
+                <h3 class="text-xl font-semibold mb-6 border-b pb-3 text-gray-700">ส่วนที่ 1: ข้อมูลสถานประกอบการ</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="md:col-span-2">
+                        <label for="businessName" class="block text-sm font-medium text-gray-700 mb-1">ชื่อสถานประกอบการ (ภาษาไทย) <span class="text-red-500">*</span></label>
+                        <input type="text" id="businessName" name="businessName" class="form-input w-full p-2 border border-gray-300 rounded-md" required>
+                    </div>
+                     <div class="md:col-span-2">
+                        <label for="legalName" class="block text-sm font-medium text-gray-700 mb-1">ชื่อจดทะเบียนนิติบุคคล (ถ้ามี)</label>
+                        <input type="text" id="legalName" name="legalName" placeholder="เช่น บริษัท เอบีซี จำกัด (มหาชน)" class="form-input w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="businessAddress" class="block text-sm font-medium text-gray-700 mb-1">ที่อยู่ของสถานประกอบการ (ตามที่จดทะเบียน) <span class="text-red-500">*</span></label>
+                        <textarea id="businessAddress" name="businessAddress" rows="3" class="form-textarea w-full p-2 border border-gray-300 rounded-md" required></textarea>
+                    </div>
+                     <div>
+                        <label for="taxId" class="block text-sm font-medium text-gray-700 mb-1">เลขประจำตัวผู้เสียภาษีอากร (13 หลัก) <span class="text-red-500">*</span></label>
+                        <input type="text" id="taxId" name="taxId" class="form-input w-full p-2 border border-gray-300 rounded-md" pattern="\d{13}" title="กรุณากรอกตัวเลข 13 หลัก" required>
+                    </div>
+                     <div>
+                        <label for="businessPhone" class="block text-sm font-medium text-gray-700 mb-1">เบอร์โทรศัพท์สถานประกอบการ <span class="text-red-500">*</span></label>
+                        <input type="tel" id="businessPhone" name="businessPhone" class="form-input w-full p-2 border border-gray-300 rounded-md" pattern="[0-9]{9,10}" title="กรุณากรอกเบอร์โทรศัพท์ 9-10 หลัก" required>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="businessType" class="block text-sm font-medium text-gray-700 mb-1">ประเภทธุรกิจ <span class="text-red-500">*</span></label>
+                        <select id="businessType" name="businessType" class="form-select w-full p-2 border border-gray-300 rounded-md" required>
+                            <option value="" disabled selected>-- กรุณาเลือก --</option>
+                            <option value="ร้านอาหาร">ร้านอาหาร</option>
+                            <option value="คาเฟ่/เครื่องดื่ม">คาเฟ่/เครื่องดื่ม</option>
+                            <option value="โรงแรม/ที่พัก">โรงแรม/ที่พัก</option>
+                            <option value="ร้านของที่ระลึก">ร้านของที่ระลึก</option>
+                            <option value="สปา/นวดเพื่อสุขภาพ">สปา/นวดเพื่อสุขภาพ</option>
+                            <option value="แหล่งท่องเที่ยว">แหล่งท่องเที่ยว</option>
+                            <option value="บริการ">บริการ</option>
+                            <option value="อื่นๆ">อื่นๆ (โปรดระบุ)</option>
+                        </select>
+                    </div>
+                     <div id="otherBusinessTypeContainer" class="hidden md:col-span-2">
+                        <label for="otherBusinessType" class="block text-sm font-medium text-gray-700 mb-1">โปรดระบุประเภทธุรกิจอื่นๆ <span class="text-red-500">*</span></label>
+                        <input type="text" id="otherBusinessType" name="otherBusinessType" class="form-input w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Coordinator Information -->
+            <div class="form-section">
+                <h3 class="text-xl font-semibold mb-6 border-b pb-3 text-gray-700">ส่วนที่ 2: ข้อมูลผู้ประสานงาน</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="contactName" class="block text-sm font-medium text-gray-700 mb-1">ชื่อ-นามสกุล ผู้ติดต่อ <span class="text-red-500">*</span></label>
+                        <input type="text" id="contactName" name="contactName" class="form-input w-full p-2 border border-gray-300 rounded-md" required>
+                    </div>
+                    <div>
+                        <label for="contactPosition" class="block text-sm font-medium text-gray-700 mb-1">ตำแหน่ง <span class="text-red-500">*</span></label>
+                        <input type="text" id="contactPosition" name="contactPosition" class="form-input w-full p-2 border border-gray-300 rounded-md" required>
+                    </div>
+                    <div>
+                        <label for="contactMobile" class="block text-sm font-medium text-gray-700 mb-1">เบอร์โทรศัพท์มือถือ <span class="text-red-500">*</span></label>
+                        <input type="tel" id="contactMobile" name="contactMobile" class="form-input w-full p-2 border border-gray-300 rounded-md" pattern="[0-9]{10}" title="กรุณากรอกเบอร์โทรศัพท์มือถือ 10 หลัก" required>
+                    </div>
+                    <div>
+                        <label for="contactEmail" class="block text-sm font-medium text-gray-700 mb-1">อีเมล <span class="text-red-500">*</span></label>
+                        <input type="email" id="contactEmail" name="contactEmail" class="form-input w-full p-2 border border-gray-300 rounded-md" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Benefits & Conditions -->
+            <div class="form-section">
+                 <h3 class="text-xl font-semibold mb-6 border-b pb-3 text-gray-700">ส่วนที่ 3: รายละเอียดสิทธิประโยชน์และเงื่อนไข</h3>
+                 <div class="grid grid-cols-1 gap-6">
+                    <div>
+                        <label for="benefitType" class="block text-sm font-medium text-gray-700 mb-1">ประเภทสิทธิประโยชน์ <span class="text-red-500">*</span></label>
+                        <select id="benefitType" name="benefitType" class="form-select w-full p-2 border border-gray-300 rounded-md" required>
+                            <option value="" disabled selected>-- กรุณาเลือก --</option>
+                            <option value="ส่วนลด (%)">ส่วนลด (%)</option>
+                            <option value="ของสมนาคุณ">ของสมนาคุณ</option>
+                            <option value="ซื้อ 1 แถม 1">ซื้อ 1 แถม 1</option>
+                            <option value="สิทธิพิเศษอื่นๆ">สิทธิพิเศษอื่นๆ</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="benefitDetail" class="block text-sm font-medium text-gray-700 mb-1">รายละเอียดสิทธิประโยชน์ <span class="text-red-500">*</span></label>
+                        <input type="text" id="benefitDetail" name="benefitDetail" class="form-input w-full p-2 border border-gray-300 rounded-md" placeholder="เช่น 15% หรือ แก้วกาแฟ 1 ใบ" required>
+                    </div>
+                    <div>
+                        <label for="benefitCondition" class="block text-sm font-medium text-gray-700 mb-1">เงื่อนไขการรับสิทธิ์ (ถ้ามี)</label>
+                        <textarea id="benefitCondition" name="benefitCondition" rows="3" class="form-textarea w-full p-2 border border-gray-300 rounded-md" placeholder="เช่น สำหรับยอดใช้จ่ายขั้นต่ำ 500 บาท, ไม่สามารถใช้ร่วมกับโปรโมชั่นอื่นได้"></textarea>
+                    </div>
+                 </div>
+            </div>
+            
+            <!-- Section 4: PR Information -->
+            <div class="form-section">
+                <h3 class="text-xl font-semibold mb-6 border-b pb-3 text-gray-700">ส่วนที่ 4: ข้อมูลเพื่อการประชาสัมพันธ์</h3>
+                <div class="grid grid-cols-1 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">ช่องทางการประชาสัมพันธ์ของร้านค้า (เลือกได้มากกว่า 1 ข้อ)</label>
+                        <div class="space-y-2">
+                           <div class="flex items-center"><input type="checkbox" id="promo_fb" name="promoChannel" value="Facebook" class="h-4 w-4 text-indigo-600 border-gray-300 rounded"><label for="promo_fb" class="ml-2 text-sm text-gray-600">Facebook</label></div>
+                           <div class="flex items-center"><input type="checkbox" id="promo_ig" name="promoChannel" value="Instagram" class="h-4 w-4 text-indigo-600 border-gray-300 rounded"><label for="promo_ig" class="ml-2 text-sm text-gray-600">Instagram</label></div>
+                           <div class="flex items-center"><input type="checkbox" id="promo_line" name="promoChannel" value="LINE" class="h-4 w-4 text-indigo-600 border-gray-300 rounded"><label for="promo_line" class="ml-2 text-sm text-gray-600">LINE</label></div>
+                           <div class="flex items-center"><input type="checkbox" id="promo_web" name="promoChannel" value="Website" class="h-4 w-4 text-indigo-600 border-gray-300 rounded"><label for="promo_web" class="ml-2 text-sm text-gray-600">Website</label></div>
+                           <div class="flex items-center">
+                               <input type="checkbox" id="promo_other" name="promoChannel" value="อื่นๆ" class="h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                               <label for="promo_other" class="ml-2 text-sm text-gray-600">อื่นๆ</label>
+                               <input type="text" id="otherPromoChannel" name="otherPromoChannel" class="form-input ml-2 p-1 border border-gray-300 rounded-md text-sm hidden" placeholder="โปรดระบุ">
+                           </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="logoFile" class="block text-sm font-medium text-gray-700 mb-1">แนบไฟล์โลโก้ของสถานประกอบการ <span class="text-red-500">*</span></label>
+                        <input type="file" id="logoFile" name="logoFile" class="form-file w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100" accept=".png,.jpg,.jpeg" required>
+                         <p class="mt-1 text-xs text-gray-500">ไฟล์ .PNG (พื้นหลังโปร่งใส) หรือ .JPG คุณภาพสูง</p>
+                    </div>
+                    <div>
+                        <label for="imageFiles" class="block text-sm font-medium text-gray-700 mb-1">แนบไฟล์รูปภาพร้านค้า/สินค้า/บริการ (1-3 รูป) <span class="text-red-500">*</span></label>
+                        <input type="file" id="imageFiles" name="imageFiles" class="form-file w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100" accept=".png,.jpg,.jpeg" multiple required>
+                         <p class="mt-1 text-xs text-gray-500">ไฟล์ .JPG หรือ .PNG คุณภาพสูง</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section 5: POP Material -->
+             <div class="form-section">
+                <h3 class="text-xl font-semibold mb-6 border-b pb-3 text-gray-700">ส่วนที่ 5: การสนับสนุนสื่อประชาสัมพันธ์ ณ จุดขาย (POP)</h3>
+                 <p class="text-sm text-gray-600 mb-4">ทางสมาพันธ์ฯ จะสนับสนุนสื่อประชาสัมพันธ์เพื่อติดตั้งที่ร้านของท่าน โปรดระบุจำนวนที่ต้องการ (ถ้ามี)</p>
+                 <div class="space-y-4">
+                     <div class="flex items-center justify-between">
+                         <label for="pop_tentcard" class="text-sm text-gray-700">ป้ายตั้งโต๊ะ (Tent Card A5)</label>
+                         <input type="number" id="pop_tentcard" name="pop_tentcard" min="0" class="form-input w-24 p-1 border border-gray-300 rounded-md text-center">
+                     </div>
+                      <div class="flex items-center justify-between">
+                         <label for="pop_standee" class="text-sm text-gray-700">ป้ายตั้งพื้น (Standee ขนาด 60x160 cm.)</label>
+                         <input type="number" id="pop_standee" name="pop_standee" min="0" class="form-input w-24 p-1 border border-gray-300 rounded-md text-center">
+                     </div>
+                      <div class="flex items-center justify-between">
+                         <label for="pop_billfolder" class="text-sm text-gray-700">แฟ้มสอดบิล (Insert Bill Folder A5)</label>
+                         <input type="number" id="pop_billfolder" name="pop_billfolder" min="0" class="form-input w-24 p-1 border border-gray-300 rounded-md text-center">
+                     </div>
+                 </div>
+            </div>
+            
+            <!-- Section 6: Payment Information -->
+             <div class="form-section">
+                <h3 class="text-xl font-semibold mb-6 border-b pb-3 text-gray-700">ส่วนที่ 6: ข้อมูลการรับชำระเงิน</h3>
+                 <p class="text-sm text-gray-600 mb-4">ข้อมูลนี้จะถูกใช้เพื่อโอนเงินค่าสินค้าและบริการจากผู้ถือบัตรให้กับทางร้านค้า และจะถูกเก็บเป็นความลับตามนโยบายคุ้มครองข้อมูลส่วนบุคคล</p>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                     <div class="md:col-span-2">
+                        <label for="bankName" class="block text-sm font-medium text-gray-700 mb-1">ธนาคาร <span class="text-red-500">*</span></label>
+                        <select id="bankName" name="bankName" class="form-select w-full p-2 border border-gray-300 rounded-md" required>
+                             <option value="" disabled selected>-- กรุณาเลือกธนาคาร --</option>
+                             <option value="ธนาคารกรุงเทพ">ธนาคารกรุงเทพ</option>
+                             <option value="ธนาคารกสิกรไทย">ธนาคารกสิกรไทย</option>
+                             <option value="ธนาคารกรุงไทย">ธนาคารกรุงไทย</option>
+                             <option value="ธนาคารทหารไทยธนชาต">ธนาคารทหารไทยธนชาต</option>
+                             <option value="ธนาคารไทยพาณิชย์">ธนาคารไทยพาณิชย์</option>
+                             <option value="ธนาคารกรุงศรีอยุธยา">ธนาคารกรุงศรีอยุธยา</option>
+                             <option value="ธนาคารออมสิน">ธนาคารออมสิน</option>
+                             <option value="อื่นๆ">อื่นๆ</option>
+                        </select>
+                     </div>
+                     <div>
+                        <label for="accountName" class="block text-sm font-medium text-gray-700 mb-1">ชื่อบัญชี <span class="text-red-500">*</span></label>
+                        <input type="text" id="accountName" name="accountName" class="form-input w-full p-2 border border-gray-300 rounded-md" required>
+                     </div>
+                      <div>
+                        <label for="accountNumber" class="block text-sm font-medium text-gray-700 mb-1">เลขที่บัญชี <span class="text-red-500">*</span></label>
+                        <input type="text" id="accountNumber" name="accountNumber" class="form-input w-full p-2 border border-gray-300 rounded-md" pattern="\d*" title="กรุณากรอกเฉพาะตัวเลข" required>
+                     </div>
+                      <div class="md:col-span-2">
+                        <label for="bankCopyFile" class="block text-sm font-medium text-gray-700 mb-1">แนบสำเนาหน้าสมุดบัญชี <span class="text-red-500">*</span></label>
+                        <input type="file" id="bankCopyFile" name="bankCopyFile" class="form-file w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100" accept=".png,.jpg,.jpeg,.pdf" required>
+                         <p class="mt-1 text-xs text-gray-500">ไฟล์ .JPG, .PNG หรือ .PDF</p>
+                    </div>
+                 </div>
+            </div>
+
+            <!-- Section 7: Footer & Submit -->
+            <div class="form-section">
+                 <div class="flex items-start">
+                    <input id="consent" name="consent" type="checkbox" class="h-4 w-4 text-indigo-600 border-gray-300 rounded mt-1 flex-shrink-0" required>
+                    <label for="consent" class="ml-3 block text-sm text-gray-700">
+                        ข้าพเจ้าได้อ่านและเข้าใจใน <a href="#" target="_blank" class="font-medium text-indigo-600 hover:underline">นโยบายคุ้มครองข้อมูลส่วนบุคคล (PDPA)</a> และยินยอมให้สมาพันธ์เอสเอ็มอีไทยและพันธมิตรในโครงการฯ เก็บ รวบรวม ใช้ และเปิดเผยข้อมูลส่วนบุคคลและข้อมูลของสถานประกอบการที่ให้ไว้ในฟอร์มนี้ เพื่อวัตถุประสงค์ในการพิจารณาเข้าร่วมโครงการ, การดำเนินการด้านการชำระเงิน, การประชาสัมพันธ์ และการติดต่อประสานงานที่เกี่ยวข้องกับโครงการ <span class="text-red-500">*</span>
+                    </label>
+                </div>
+                <div class="mt-8 text-center">
+                    <button type="submit" id="submitBtn" class="submit-button w-full md:w-auto bg-indigo-600 text-white font-bold py-3 px-12 rounded-full hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-gray-400">
+                       <span id="btnText">ส่งข้อมูลการสมัคร</span>
+                       <span id="btnSpinner" class="hidden">
+                           <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                               <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                               <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                           </svg>
+                           กำลังส่ง...
+                       </span>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Success Message -->
+        <div id="successMessage" class="hidden text-center p-8 bg-white rounded-lg shadow-lg">
+             <svg class="mx-auto h-12 w-12 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h3 class="mt-4 text-2xl font-bold text-gray-800">ส่งข้อมูลการสมัครเรียบร้อยแล้ว!</h3>
+            <p class="mt-2 text-gray-600">ขอบคุณที่เข้าร่วมเป็นส่วนหนึ่งของเครือข่ายสมาพันธ์เอสเอ็มอีไทย<br>ทางทีมงานจะติดต่อกลับเพื่อยืนยันและแจ้งรายละเอียดเพิ่มเติมเร็วๆ นี้</p>
+        </div>
+
+         <!-- Error Message -->
+        <div id="errorMessage" class="hidden text-center p-4 my-4 bg-red-100 text-red-700 rounded-lg">
+           เกิดข้อผิดพลาดในการส่งข้อมูล กรุณาลองใหม่อีกครั้ง
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('merchantForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const btnSpinner = document.getElementById('btnSpinner');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+
+            // !!!  สำคัญ: แก้ไข URL นี้เป็น URL ของ Google Apps Script Web App ที่คุณ Deploy ไว้  !!!
+            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw5vq8fCslkHFZFixGiu5ZckWi9uzvYgtfweSLRfoTupYyFfdK7QBPg-uYccSEq3-SW/exec';
+
+            // --- Logic for "Other" fields ---
+            const businessTypeSelect = document.getElementById('businessType');
+            const otherBusinessTypeContainer = document.getElementById('otherBusinessTypeContainer');
+            const otherBusinessTypeInput = document.getElementById('otherBusinessType');
+            
+            businessTypeSelect.addEventListener('change', function() {
+                if (this.value === 'อื่นๆ') {
+                    otherBusinessTypeContainer.classList.remove('hidden');
+                    otherBusinessTypeInput.required = true;
+                } else {
+                    otherBusinessTypeContainer.classList.add('hidden');
+                    otherBusinessTypeInput.required = false;
+                    otherBusinessTypeInput.value = '';
+                }
+            });
+
+            const promoOtherCheckbox = document.getElementById('promo_other');
+            const otherPromoChannelInput = document.getElementById('otherPromoChannel');
+
+            promoOtherCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    otherPromoChannelInput.classList.remove('hidden');
+                } else {
+                    otherPromoChannelInput.classList.add('hidden');
+                    otherPromoChannelInput.value = '';
+                }
+            });
+
+            // --- Form submission logic ---
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Simple client-side validation
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+
+                // --- Show loading state ---
+                submitBtn.disabled = true;
+                btnText.classList.add('hidden');
+                btnSpinner.classList.remove('hidden');
+                errorMessage.classList.add('hidden');
+
+                const formData = new FormData(form);
+                
+                // For checkboxes, we need to manually aggregate the values
+                const promoChannels = [];
+                document.querySelectorAll('input[name="promoChannel"]:checked').forEach(checkbox => {
+                    promoChannels.push(checkbox.value);
+                });
+                
+                // Append aggregated checkbox values
+                formData.delete('promoChannel'); // remove individual ones
+                formData.append('promoChannels', promoChannels.join(', '));
+                
+
+                fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.result === 'success') {
+                        // On success, hide form and show success message
+                        form.classList.add('hidden');
+                        successMessage.classList.remove('hidden');
+                        successMessage.classList.add('fade-in-up');
+                    } else {
+                        // On error from script
+                        throw new Error(data.message || 'Unknown error from script');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    errorMessage.textContent = 'เกิดข้อผิดพลาด: ' + error.message + ' กรุณาตรวจสอบ Console หรือติดต่อผู้ดูแล';
+                    errorMessage.classList.remove('hidden');
+                    // --- Reset button state ---
+                    submitBtn.disabled = false;
+                    btnText.classList.remove('hidden');
+                    btnSpinner.classList.add('hidden');
+                });
+            });
+
+            // --- Animate sections on scroll ---
+            const sections = document.querySelectorAll('.form-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in-up');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
