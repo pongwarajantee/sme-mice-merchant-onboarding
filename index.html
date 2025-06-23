@@ -17,7 +17,16 @@
     <style>
         body {
             font-family: 'Sarabun', sans-serif;
-            background-color: #f7fafc;
+        }
+
+        /* ---โค้ดสำหรับพื้นหลัง Gradient ที่เพิ่มเข้ามา--- */
+        .aurora-background {
+            background-color: #f8f9fa; /* สีพื้นหลังหลัก */
+            background-image: 
+                radial-gradient(at 20% 20%, hsla(210, 80%, 70%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 10%, hsla(280, 75%, 65%, 0.1) 0px, transparent 50%),
+                radial-gradient(at 80% 80%, hsla(190, 70%, 60%, 0.15) 0px, transparent 50%);
+            transition: background 0.3s ease-in-out;
         }
         
         .form-section {
@@ -62,7 +71,8 @@
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<!-- ---[การเปลี่ยนแปลง] เปลี่ยน class จาก bg-gray-50 เป็น aurora-background--- -->
+<body class="aurora-background">
 
     <div class="container mx-auto p-4 md:p-8 max-w-4xl">
 
@@ -310,7 +320,7 @@
             const errorMessage = document.getElementById('errorMessage');
 
             // !!!  สำคัญ: แก้ไข URL นี้เป็น URL ของ Google Apps Script Web App ที่คุณ Deploy ไว้  !!!
-            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw5vq8fCslkHFZFixGiu5ZckWi9uzvYgtfweSLRfoTupYyFfdK7QBPg-uYccSEq3-SW/exec';
+            const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
 
             // --- Logic for "Other" fields ---
             const businessTypeSelect = document.getElementById('businessType');
