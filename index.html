@@ -17,16 +17,7 @@
     <style>
         body {
             font-family: 'Sarabun', sans-serif;
-        }
-
-        /* ---โค้ดสำหรับพื้นหลัง Gradient ที่เพิ่มเข้ามา--- */
-        .aurora-background {
-            background-color: #f8f9fa; /* สีพื้นหลังหลัก */
-            background-image: 
-                radial-gradient(at 20% 20%, hsla(210, 80%, 70%, 0.15) 0px, transparent 50%),
-                radial-gradient(at 80% 10%, hsla(280, 75%, 65%, 0.1) 0px, transparent 50%),
-                radial-gradient(at 80% 80%, hsla(190, 70%, 60%, 0.15) 0px, transparent 50%);
-            transition: background 0.3s ease-in-out;
+            background-color: #f7fafc;
         }
         
         .form-section {
@@ -71,8 +62,7 @@
         }
     </style>
 </head>
-<!-- ---[การเปลี่ยนแปลง] เปลี่ยน class จาก bg-gray-50 เป็น aurora-background--- -->
-<body class="aurora-background">
+<body class="bg-gray-50">
 
     <div class="container mx-auto p-4 md:p-8 max-w-4xl">
 
@@ -80,9 +70,9 @@
         <header class="text-center mb-10">
             <div class="flex justify-center items-center space-x-4 md:space-x-8 mb-6">
                 <!-- Placeholder for Logos -->
-                <img src="images/SME Better Together Logo.jpg" alt="โลโก้ สมาพันธ์เอสเอ็มอีไทย" class="h-10 md:h-12 object-contain">
-                <img src="images/tceb_logo.png" alt="โลโก้ TCEB" class="h-10 md:h-12 object-contain">
-                <img src="images/visa_logo.png" alt="โลโก้ VISA" class="h-10 md:h-12 object-contain">
+                <img src="https://placehold.co/150x60/CBD5E0/334155?text=SME+Thailand" alt="โลโก้ สมาพันธ์เอสเอ็มอีไทย" class="h-10 md:h-12 object-contain">
+                <img src="https://placehold.co/150x60/CBD5E0/334155?text=TCEB" alt="โลโก้ TCEB" class="h-10 md:h-12 object-contain">
+                <img src="https://placehold.co/150x60/CBD5E0/334155?text=VISA" alt="โลโก้ VISA" class="h-10 md:h-12 object-contain">
             </div>
             <h1 class="text-2xl md:text-3xl font-bold text-gray-800">ฟอร์มสมัครเข้าร่วมเป็นร้านค้าเครือข่าย</h1>
             <h2 class="text-xl md:text-2xl font-semibold text-indigo-600">โครงการบัตร SME Thailand MICE Visa Prepaid Card</h2>
@@ -164,8 +154,8 @@
             <!-- Section 3: Benefits & Conditions -->
             <div class="form-section">
                  <h3 class="text-xl font-semibold mb-6 border-b pb-3 text-gray-700">ส่วนที่ 3: รายละเอียดสิทธิประโยชน์และเงื่อนไข</h3>
-                 <div class="grid grid-cols-1 gap-6">
-                    <div>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="md:col-span-2">
                         <label for="benefitType" class="block text-sm font-medium text-gray-700 mb-1">ประเภทสิทธิประโยชน์ <span class="text-red-500">*</span></label>
                         <select id="benefitType" name="benefitType" class="form-select w-full p-2 border border-gray-300 rounded-md" required>
                             <option value="" disabled selected>-- กรุณาเลือก --</option>
@@ -175,11 +165,22 @@
                             <option value="สิทธิพิเศษอื่นๆ">สิทธิพิเศษอื่นๆ</option>
                         </select>
                     </div>
-                    <div>
+                    <div class="md:col-span-2">
                         <label for="benefitDetail" class="block text-sm font-medium text-gray-700 mb-1">รายละเอียดสิทธิประโยชน์ <span class="text-red-500">*</span></label>
                         <input type="text" id="benefitDetail" name="benefitDetail" class="form-input w-full p-2 border border-gray-300 rounded-md" placeholder="เช่น 15% หรือ แก้วกาแฟ 1 ใบ" required>
                     </div>
+                    
+                    <!-- [เพิ่มใหม่] ระยะเวลาของสิทธิประโยชน์ -->
                     <div>
+                        <label for="benefitStartDate" class="block text-sm font-medium text-gray-700 mb-1">วันที่เริ่มต้นสิทธิประโยชน์ <span class="text-red-500">*</span></label>
+                        <input type="date" id="benefitStartDate" name="benefitStartDate" class="form-input w-full p-2 border border-gray-300 rounded-md" required>
+                    </div>
+                    <div>
+                        <label for="benefitEndDate" class="block text-sm font-medium text-gray-700 mb-1">วันที่สิ้นสุดสิทธิประโยชน์ <span class="text-red-500">*</span></label>
+                        <input type="date" id="benefitEndDate" name="benefitEndDate" class="form-input w-full p-2 border border-gray-300 rounded-md" required>
+                    </div>
+
+                    <div class="md:col-span-2">
                         <label for="benefitCondition" class="block text-sm font-medium text-gray-700 mb-1">เงื่อนไขการรับสิทธิ์ (ถ้ามี)</label>
                         <textarea id="benefitCondition" name="benefitCondition" rows="3" class="form-textarea w-full p-2 border border-gray-300 rounded-md" placeholder="เช่น สำหรับยอดใช้จ่ายขั้นต่ำ 500 บาท, ไม่สามารถใช้ร่วมกับโปรโมชั่นอื่นได้"></textarea>
                     </div>
@@ -320,7 +321,7 @@
             const errorMessage = document.getElementById('errorMessage');
 
             // !!!  สำคัญ: แก้ไข URL นี้เป็น URL ของ Google Apps Script Web App ที่คุณ Deploy ไว้  !!!
-            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyMoPWkOpZCyi2uohVibG89NxEfDOW4TQrfubqHv4kxP7jDnHjvpRVTGMuLkQ7A46Ap/exec';
+            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw5vq8fCslkHFZFixGiu5ZckWi9uzvYgtfweSLRfoTupYyFfdK7QBPg-uYccSEq3-SW/exec';
 
             // --- Logic for "Other" fields ---
             const businessTypeSelect = document.getElementById('businessType');
